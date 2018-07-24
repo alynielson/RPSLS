@@ -16,7 +16,8 @@ namespace RPSLS
 
         public override void GetPlayerAnswer()
         {
-            
+            Random rnd = new Random();
+            playerAnswer = rnd.Next(1, 6);
         }
     
     }

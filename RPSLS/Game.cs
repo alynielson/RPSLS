@@ -79,7 +79,9 @@ namespace RPSLS
         public void PlayRound()
         {
             playerOne.GetPlayerAnswer();
+            playerOne.ConvertAnswerToChoice();
             playerTwo.GetPlayerAnswer();
+            playerTwo.ConvertAnswerToChoice();
         }
 
     }

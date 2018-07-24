@@ -17,5 +17,29 @@ namespace RPSLS
 
 
         public abstract void GetPlayerAnswer();
+
+        public void ConvertAnswerToChoice()
+        {
+            switch (playerAnswer)
+            {
+                case (1):
+                    gestureChoice = gestures[0];
+                    break;
+                case 2:
+                    gestureChoice = gestures[1];
+                    break;
+                case 3:
+                    gestureChoice = gestures[2];
+                    break;
+                case 4:
+                    gestureChoice = gestures[3];
+                    break;
+                case 5:
+                    gestureChoice = gestures[4];
+                    break;
+            }
+            Console.WriteLine(name + " chose " + gestureChoice + "!");
+            Console.ReadLine();
+        }
     }
 }

@@ -35,8 +35,6 @@ namespace RPSLS
                 Console.WriteLine("You didn't type a number from 1 to 5! Try again.");
                 GetPlayerAnswer();
             }
-            
-
         }
 
     }
