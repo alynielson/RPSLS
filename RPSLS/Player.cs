@@ -9,6 +9,8 @@ namespace RPSLS
     class Player
     {
         public int score;
+        public string name;
+        //list of choices
 
     }
 }
