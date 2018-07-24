@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class Player
+    public abstract class Player
     {
         public int score;
+        public List<string> gestures = new List<string> { "Rock", "Paper", "Scissors", "Lizard", "Spock" };
         public string name;
-        //list of choices
+        public string gestureChoice;
+        public int playerAnswer;
 
+
+
+        public abstract void GetPlayerAnswer();
     }
 }

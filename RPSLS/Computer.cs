@@ -8,5 +8,16 @@ namespace RPSLS
 {
     class Computer : Player
     {
+        public Computer()
+        {
+            score = 0;
+            name = "Computer";
+        }
+
+        public override void GetPlayerAnswer()
+        {
+            
+        }
+    
     }
 }

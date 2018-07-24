@@ -16,7 +16,7 @@ namespace RPSLS
 
         public Game()
         {
-            playerOne = new Human();
+            currentRound = 1;
             Console.WriteLine("You can either play against the computer (single player) or play against a friend (2 player).");
             DetermineIfPlayingComputer();
         }
@@ -30,6 +30,7 @@ namespace RPSLS
                 case ("yes"):
                     isHumanVsComputer = true;
                     Console.WriteLine("You vs me! Let's go!");
+                    playerOne = new Human("Player One");
                     playerTwo = new Computer();
                     Console.WriteLine("How many rounds do you want to play?");
                     DetermineNumberOfRounds();
@@ -37,7 +38,8 @@ namespace RPSLS
                 case ("no"):
                     isHumanVsComputer = false;
                     Console.WriteLine("Then it's a two player game! Let's go!");
-                    playerTwo = new Human();
+                    playerOne = new Human("Player One");
+                    playerTwo = new Human("Player Two");
                     Console.WriteLine("How many rounds do you want to play?");
                     DetermineNumberOfRounds();
                     break;
@@ -56,18 +58,28 @@ namespace RPSLS
             {
                 case ("3"):
                     numberOfRounds = 3;
-                    Console.ReadLine();
+                    Console.WriteLine("Three rounds! Let's go!");
                     break;
                 case ("5"):
                     numberOfRounds = 5;
-                    Console.ReadLine();
+                    Console.WriteLine("Five rounds! Let's go!");
+                    break;
+                case ("7"):
+                    numberOfRounds = 7;
+                    Console.WriteLine("Seven rounds! Let's go!");
                     break;
                 default:
                     Console.WriteLine("Wrong! You didn't enter 3, 5, or 7. Try again.");
                     DetermineNumberOfRounds();
                     break;
             }
+            PlayRound();
+        }
 
+        public void PlayRound()
+        {
+            playerOne.GetPlayerAnswer();
+            playerTwo.GetPlayerAnswer();
         }
 
     }
