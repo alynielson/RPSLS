@@ -11,6 +11,7 @@ namespace RPSLS
         public bool isHumanVsComputer;
         public int numberOfRounds;
         public int currentRound;
+        public Player currentRoundWinner;
         Player playerOne;
         Player playerTwo;
 
@@ -76,6 +77,7 @@ namespace RPSLS
             PlayRound();
         }
 
+        
         public void PlayRound()
         {
             playerOne.GetPlayerAnswer();
@@ -84,5 +86,18 @@ namespace RPSLS
             playerTwo.ConvertAnswerToChoice();
         }
 
+        public void ChooseRoundWinner()
+        {
+            if (playerOne.gestureChoice == playerTwo.gestureChoice)
+            {
+                Console.WriteLine("There was a tie! Play the round again.");
+                PlayRound();
+            }
+            else
+            {
+
+            }
+            
+        }
     }
 }
