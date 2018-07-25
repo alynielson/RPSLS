@@ -8,22 +8,32 @@ namespace RPSLS
 {
     class Game
     {
-        public bool isHumanVsComputer;
-        public int numberOfRounds;
-        public int currentRound;
-        public bool isGameOverEarly = false;
+        bool isHumanVsComputer;
+        int numberOfRounds;
+        int currentRound;
+        bool isGameOverEarly = false;
         Player playerOne;
         Player playerTwo;
+        string[] rockBeats = { "Scissors", "Lizard" };
+        string[] paperBeats = { "Rock", "Spock" };
+        string[] scissorsBeats = { "Paper", "Lizard" };
+        string[] lizardBeats = { "Paper", "Spock" };
+        string[] spockBeats = { "Scissors", "Rock" };
 
         public Game()
         {
             currentRound = 1;
-            Console.WriteLine("You can either play against the computer (single player) or play against a friend (2 player).");
-            DetermineIfPlayingComputer();
         }
 
-        public void DetermineIfPlayingComputer()
+        public void StartGame()
         {
+            DetermineIfPlayingComputer();
+            DetermineNumberOfRounds();
+        }
+
+        private void DetermineIfPlayingComputer()
+        {
+            Console.WriteLine("You can either play against the computer (single player) or play against a friend (2 player).");
             Console.WriteLine("Will you be playing You vs. The Computer? Type Yes or No.");
             string answer = Console.ReadLine().ToLower().Trim();
             switch (answer)
@@ -33,16 +43,12 @@ namespace RPSLS
                     Console.WriteLine("You vs. me! Let's go!");
                     playerOne = new Human("Player One");
                     playerTwo = new Computer();
-                    Console.WriteLine("How many rounds do you want to play?");
-                    DetermineNumberOfRounds();
                     break;
                 case ("no"):
                     isHumanVsComputer = false;
                     Console.WriteLine("Then it's a two player game! Let's go!");
                     playerOne = new Human("Player One");
                     playerTwo = new Human("Player Two");
-                    Console.WriteLine("How many rounds do you want to play?");
-                    DetermineNumberOfRounds();
                     break;
                 default:
                     Console.WriteLine("You did not type Yes or No! Try again.");
@@ -51,8 +57,9 @@ namespace RPSLS
             }
         }
 
-        public void DetermineNumberOfRounds()
+        private void DetermineNumberOfRounds()
         {
+            Console.WriteLine("How many rounds do you want to play?");
             Console.WriteLine("You can play Best of 3, Best of 5, or Best of 7. Enter 3,5, or 7.");
             string answer = Console.ReadLine().Trim();
             switch (answer)
@@ -80,14 +87,16 @@ namespace RPSLS
                     DetermineNumberOfRounds();
                     break;
             }
-            PlayGame();
         }
+
+        
 
         public void PlayGame()
         {
             while (currentRound <= numberOfRounds)
             {
                 PlayRound();
+                ChooseRoundWinner();
                 if (currentRound < numberOfRounds)
                 {
                     CheckIfPlayerWinsGameEarly();
@@ -109,14 +118,10 @@ namespace RPSLS
                 Console.WriteLine(playerTwo.name + " won " + playerTwo.score + " rounds out of " + (currentRound - 1) + " (" + numberOfRounds + " round game).");
                 Console.WriteLine(playerTwo.name + " wins the game!");
             }
-            Console.WriteLine("Press any key to play again!");
             Console.ReadLine();
-            Console.Clear();
-            Game newGame = new Game();
-            
         }
         
-        public void PlayRound()
+        private void PlayRound()
         {
             Console.WriteLine("Round " + currentRound + ": "+ playerOne.score + " to " + playerTwo.score);
             playerOne.GetPlayerAnswer();
@@ -130,10 +135,9 @@ namespace RPSLS
             }
             playerTwo.GetPlayerAnswer();
             playerTwo.ConvertAnswerToChoice();
-            ChooseRoundWinner();
         }
 
-        public void ChooseRoundWinner()
+        private void ChooseRoundWinner()
         {
             if (playerOne.gestureChoice == playerTwo.gestureChoice)
             {
@@ -142,16 +146,11 @@ namespace RPSLS
                 Console.ReadLine();
                 Console.Clear();
                 PlayRound();
+                ChooseRoundWinner();
             }
             else
             {
-                string[] rockBeats = { "Scissors", "Lizard" };
-                string[] paperBeats = { "Rock", "Spock" };
-                string[] scissorsBeats = { "Paper", "Lizard" };
-                string[] lizardBeats = { "Paper", "Spock" };
-                string[] spockBeats = { "Scissors", "Rock" };
                 int roundWinner = 2;
-
                 switch (playerOne.gestureChoice)
                 {
                     case ("Rock"):
@@ -203,7 +202,7 @@ namespace RPSLS
                 Console.Clear();
             }    
         }
-        public void CheckIfPlayerWinsGameEarly()
+        private void CheckIfPlayerWinsGameEarly()
         {
             double pointsToWin = (Convert.ToDouble(numberOfRounds) / 2) + 0.5;
             if (playerOne.score == pointsToWin)

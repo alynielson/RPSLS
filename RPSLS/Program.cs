@@ -12,6 +12,9 @@ namespace RPSLS
         {
             Console.WriteLine("Welcome to Rock Paper Scissors Lizard Spock!");
             Game newGame = new Game();
+            newGame.StartGame();
+            newGame.PlayGame();
+            
         }
     }
 }
