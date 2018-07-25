@@ -92,20 +92,21 @@ namespace RPSLS
                 {
                     CheckIfPlayerWinsGameEarly();
                 }
+                currentRound++;
                 if (isGameOverEarly)
                 {
                     break;
                 }
-                currentRound++;
+                
             }
             if (playerOne.score > playerTwo.score)
             {
-                Console.WriteLine(playerOne.name + " won " + playerOne.score + " rounds out of " + numberOfRounds + ".");
+                Console.WriteLine(playerOne.name + " won " + playerOne.score + " rounds out of " + (currentRound -1) + " (" + numberOfRounds + " round game).");
                 Console.WriteLine(playerOne.name + " wins the game!");
             }
             else
             {
-                Console.WriteLine(playerTwo.name + " won " + playerTwo.score + " rounds out of " + numberOfRounds + ".");
+                Console.WriteLine(playerTwo.name + " won " + playerTwo.score + " rounds out of " + (currentRound - 1) + " (" + numberOfRounds + " round game).");
                 Console.WriteLine(playerTwo.name + " wins the game!");
             }
             Console.WriteLine("Press any key to play again!");
