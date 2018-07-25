@@ -100,6 +100,12 @@ namespace RPSLS
         {
             playerOne.GetPlayerAnswer();
             playerOne.ConvertAnswerToChoice();
+            if (!isHumanVsComputer)
+            {
+                Console.WriteLine("Press any key to clear the console so " + playerTwo.name + " will not see your choice.");
+                Console.ReadLine();
+                Console.Clear();
+            }
             playerTwo.GetPlayerAnswer();
             playerTwo.ConvertAnswerToChoice();
             ChooseRoundWinner();
