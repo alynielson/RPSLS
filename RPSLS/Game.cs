@@ -101,7 +101,10 @@ namespace RPSLS
             {
                 Console.WriteLine(playerTwo.name + " wins the game!");
             }
+            Console.WriteLine("Press any key to play again!");
             Console.ReadLine();
+            Game newGame = new Game();
+            Console.Clear();
         }
         
         public void PlayRound()
