@@ -29,7 +29,7 @@ namespace RPSLS
             {
                 case ("yes"):
                     isHumanVsComputer = true;
-                    Console.WriteLine("You vs me! Let's go!");
+                    Console.WriteLine("You vs. me! Let's go!");
                     playerOne = new Human("Player One");
                     playerTwo = new Computer();
                     Console.WriteLine("How many rounds do you want to play?");
@@ -95,10 +95,12 @@ namespace RPSLS
             }
             if (playerOne.score > playerTwo.score)
             {
+                Console.WriteLine(playerOne.name + " won " + playerOne.score + " rounds out of " + numberOfRounds + ".");
                 Console.WriteLine(playerOne.name + " wins the game!");
             }
             else
             {
+                Console.WriteLine(playerTwo.name + " won " + playerTwo.score + " rounds out of " + numberOfRounds + ".");
                 Console.WriteLine(playerTwo.name + " wins the game!");
             }
             Console.WriteLine("Press any key to play again!");
@@ -202,14 +204,12 @@ namespace RPSLS
             {
                 Console.WriteLine(playerOne.name + " has won enough rounds to finish the game early!");
                 currentRound = numberOfRounds + 1;
-                playerOne.score = numberOfRounds;
                 
             }
             else if (playerTwo.score == pointsToWin)
             {
                 Console.WriteLine(playerTwo.name + " has won enough rounds to finish the game early!");
                 currentRound = numberOfRounds + 1;
-                playerTwo.score = numberOfRounds;
             }
         }
     }
