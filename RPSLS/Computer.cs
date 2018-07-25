@@ -10,7 +10,6 @@ namespace RPSLS
     {
         public Computer()
         {
-            score = 0;
             name = "Computer";
         }
 

@@ -11,7 +11,6 @@ namespace RPSLS
 
         public Human(string playerNumber)
         {
-            score = 0;
             Console.WriteLine(playerNumber + ", what is your name?");
             name = Console.ReadLine();
             while (name.Length == 0)

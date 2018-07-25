@@ -8,7 +8,7 @@ namespace RPSLS
 {
     public abstract class Player
     {
-        public int score;
+        public int score = 0;
         public List<string> gestures = new List<string> { "Rock", "Paper", "Scissors", "Lizard", "Spock" };
         public string name;
         public string gestureChoice;

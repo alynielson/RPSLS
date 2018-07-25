@@ -209,7 +209,7 @@ namespace RPSLS
             {
                 Console.WriteLine(playerTwo.name + " has won enough rounds to finish the game early!");
                 currentRound = numberOfRounds + 1;
-                playerOne.score = numberOfRounds;
+                playerTwo.score = numberOfRounds;
             }
         }
     }
