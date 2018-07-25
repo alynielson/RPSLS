@@ -78,10 +78,12 @@ namespace RPSLS
 
         public void PlayGame()
         {
+            
             while (currentRound <= numberOfRounds)
             {
                 PlayRound();
                 currentRound++;
+                checkIfPlayerWinsGameEarly();
             }
             if (playerOne.score > playerTwo.score)
             {
@@ -166,12 +168,24 @@ namespace RPSLS
                         break;
                 }
                 Console.ReadLine();
+            }    
+        }
+        public void checkIfPlayerWinsGameEarly()
+        {
+            double pointsToWin = (Convert.ToDouble(numberOfRounds) / 2) + 0.5;
+            if (playerOne.score == pointsToWin)
+            {
+                Console.WriteLine(playerOne.name + " has won enough rounds to finish the game early!");
+                currentRound = numberOfRounds + 1;
+                playerOne.score = numberOfRounds;
+                
             }
-            
-
-            
-            
-            
+            else if (playerTwo.score == pointsToWin)
+            {
+                Console.WriteLine(playerTwo.name + " has won enough rounds to finish the game early!");
+                currentRound = numberOfRounds + 1;
+                playerOne.score = numberOfRounds;
+            }
         }
     }
 }
