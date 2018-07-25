@@ -11,7 +11,6 @@ namespace RPSLS
         public bool isHumanVsComputer;
         public int numberOfRounds;
         public int currentRound;
-        public Player currentRoundWinner;
         Player playerOne;
         Player playerTwo;
 
@@ -74,9 +73,26 @@ namespace RPSLS
                     DetermineNumberOfRounds();
                     break;
             }
-            PlayRound();
+            PlayGame();
         }
 
+        public void PlayGame()
+        {
+            while (currentRound <= numberOfRounds)
+            {
+                PlayRound();
+                currentRound++;
+            }
+            if (playerOne.score > playerTwo.score)
+            {
+                Console.WriteLine(playerOne.name + " wins the game!");
+            }
+            else
+            {
+                Console.WriteLine(playerTwo.name + " wins the game!");
+            }
+            Console.ReadLine();
+        }
         
         public void PlayRound()
         {
