@@ -39,7 +39,6 @@ namespace RPSLS
                     break;
             }
             Console.WriteLine(name + " chose " + gestureChoice + "!");
-            Console.ReadLine();
         }
     }
 }

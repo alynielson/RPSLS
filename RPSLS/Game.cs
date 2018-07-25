@@ -58,15 +58,21 @@ namespace RPSLS
             {
                 case ("3"):
                     numberOfRounds = 3;
-                    Console.WriteLine("Three rounds! Let's go!");
+                    Console.WriteLine("Three rounds! Let's go! Press any key to continue.");
+                    Console.ReadLine();
+                    Console.Clear();
                     break;
                 case ("5"):
                     numberOfRounds = 5;
-                    Console.WriteLine("Five rounds! Let's go!");
+                    Console.WriteLine("Five rounds! Let's go! Press any key to continue.");
+                    Console.ReadLine();
+                    Console.Clear();
                     break;
                 case ("7"):
                     numberOfRounds = 7;
-                    Console.WriteLine("Seven rounds! Let's go!");
+                    Console.WriteLine("Seven rounds! Let's go! Press any key to continue.");
+                    Console.ReadLine();
+                    Console.Clear();
                     break;
                 default:
                     Console.WriteLine("Wrong! You didn't enter 3, 5, or 7. Try again.");
@@ -78,12 +84,14 @@ namespace RPSLS
 
         public void PlayGame()
         {
-            
             while (currentRound <= numberOfRounds)
             {
                 PlayRound();
+                if (currentRound < numberOfRounds)
+                {
+                    CheckIfPlayerWinsGameEarly();
+                }
                 currentRound++;
-                checkIfPlayerWinsGameEarly();
             }
             if (playerOne.score > playerTwo.score)
             {
@@ -116,6 +124,9 @@ namespace RPSLS
             if (playerOne.gestureChoice == playerTwo.gestureChoice)
             {
                 Console.WriteLine("Tie! Play the round again.");
+                Console.WriteLine("Press any key to continue.");
+                Console.ReadLine();
+                Console.Clear();
                 PlayRound();
             }
             else
@@ -173,10 +184,12 @@ namespace RPSLS
                         playerTwo.score++;
                         break;
                 }
+                Console.WriteLine("Press any key to continue.");
                 Console.ReadLine();
+                Console.Clear();
             }    
         }
-        public void checkIfPlayerWinsGameEarly()
+        public void CheckIfPlayerWinsGameEarly()
         {
             double pointsToWin = (Convert.ToDouble(numberOfRounds) / 2) + 0.5;
             if (playerOne.score == pointsToWin)

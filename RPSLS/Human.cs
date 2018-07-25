@@ -15,7 +15,6 @@ namespace RPSLS
             Console.WriteLine(playerNumber + ", what is your name?");
             name = Console.ReadLine();
             Console.WriteLine("Hello " + name + "!");
-            Console.ReadLine();
         }
         public override void GetPlayerAnswer()
         {
