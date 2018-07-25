@@ -11,6 +11,7 @@ namespace RPSLS
         public bool isHumanVsComputer;
         public int numberOfRounds;
         public int currentRound;
+        public bool isGameOverEarly = false;
         Player playerOne;
         Player playerTwo;
 
@@ -90,6 +91,10 @@ namespace RPSLS
                 if (currentRound < numberOfRounds)
                 {
                     CheckIfPlayerWinsGameEarly();
+                }
+                if (isGameOverEarly)
+                {
+                    break;
                 }
                 currentRound++;
             }
@@ -203,13 +208,12 @@ namespace RPSLS
             if (playerOne.score == pointsToWin)
             {
                 Console.WriteLine(playerOne.name + " has won enough rounds to finish the game early!");
-                currentRound = numberOfRounds + 1;
-                
+                isGameOverEarly = true;
             }
             else if (playerTwo.score == pointsToWin)
             {
                 Console.WriteLine(playerTwo.name + " has won enough rounds to finish the game early!");
-                currentRound = numberOfRounds + 1;
+                isGameOverEarly = true;
             }
         }
     }
