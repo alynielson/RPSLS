@@ -84,19 +84,77 @@ namespace RPSLS
             playerOne.ConvertAnswerToChoice();
             playerTwo.GetPlayerAnswer();
             playerTwo.ConvertAnswerToChoice();
+            ChooseRoundWinner();
         }
 
         public void ChooseRoundWinner()
         {
             if (playerOne.gestureChoice == playerTwo.gestureChoice)
             {
-                Console.WriteLine("There was a tie! Play the round again.");
+                Console.WriteLine("Tie! Play the round again.");
                 PlayRound();
             }
             else
             {
+                string[] rockBeats = { "Scissors", "Lizard" };
+                string[] paperBeats = { "Rock", "Spock" };
+                string[] scissorsBeats = { "Paper", "Lizard" };
+                string[] lizardBeats = { "Paper", "Spock" };
+                string[] spockBeats = { "Scissors", "Rock" };
+                int roundWinner = 2;
 
+                switch (playerOne.gestureChoice)
+                {
+                    case ("Rock"):
+                        if (rockBeats.Contains(playerTwo.gestureChoice))
+                        {
+                            roundWinner = 1;
+                        }
+                        break;
+                    case ("Paper"):
+                        if (paperBeats.Contains(playerTwo.gestureChoice))
+                        {
+                            roundWinner = 1;
+                        }
+                        break;
+                    case ("Scissors"):
+                        if (scissorsBeats.Contains(playerTwo.gestureChoice))
+                        {
+                            roundWinner = 1;
+                        }
+                        break;
+                    case ("Lizard"):
+                        if (lizardBeats.Contains(playerTwo.gestureChoice))
+                        {
+                            roundWinner = 1;
+                        }
+                        break;
+                    case ("Spock"):
+                        if (spockBeats.Contains(playerTwo.gestureChoice))
+                        {
+                            roundWinner = 1;
+                        }
+                        break;
+                }  
+                switch (roundWinner)
+                {
+                    case 1:
+                        Console.WriteLine(playerOne.gestureChoice + " beats " + playerTwo.gestureChoice + "!");
+                        Console.WriteLine(playerOne.name + " wins round " + currentRound + "!");
+                        playerOne.score++;
+                        break;
+                    case 2:
+                        Console.WriteLine(playerTwo.gestureChoice + " beats " + playerOne.gestureChoice + "!");
+                        Console.WriteLine(playerTwo.name + " wins round " + currentRound + "!");
+                        playerTwo.score++;
+                        break;
+                }
+                Console.ReadLine();
             }
+            
+
+            
+            
             
         }
     }
