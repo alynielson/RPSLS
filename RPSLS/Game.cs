@@ -110,7 +110,7 @@ namespace RPSLS
         
         public void PlayRound()
         {
-            Console.WriteLine("Round " + currentRound);
+            Console.WriteLine("Round " + currentRound + ": "+ playerOne.score + " to " + playerTwo.score);
             playerOne.GetPlayerAnswer();
             playerOne.ConvertAnswerToChoice();
             if (!isHumanVsComputer)
@@ -118,7 +118,7 @@ namespace RPSLS
                 Console.WriteLine("Press any key to clear the console so " + playerTwo.name + " will not see your choice.");
                 Console.ReadLine();
                 Console.Clear();
-                Console.WriteLine("Round " + currentRound);
+                Console.WriteLine("Round " + currentRound + ": " + playerOne.score + " to " + playerTwo.score);
             }
             playerTwo.GetPlayerAnswer();
             playerTwo.ConvertAnswerToChoice();
