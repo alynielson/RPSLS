@@ -33,7 +33,7 @@ namespace RPSLS
 
         private void DetermineIfPlayingComputer()
         {
-            Console.WriteLine("You can either play against the computer (single player) or play against a friend (2 player).");
+            Console.WriteLine("\nYou can either play against the computer (single player) or play against a friend (2 player).");
             Console.WriteLine("Will you be playing You vs. The Computer? Type Yes or No.");
             string answer = Console.ReadLine().ToLower().Trim();
             switch (answer)

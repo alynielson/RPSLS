@@ -10,7 +10,7 @@ namespace RPSLS
     {
         static void Main()
         {
-            Console.WriteLine("Welcome to Rock Paper Scissors Lizard Spock!");
+            Console.WriteLine("Welcome to Rock Paper Scissors Lizard Spock! \n \nRules: \nRock crushes Scissors \nScissors cuts Paper \nPaper covers Rock \nRock crushes Lizard \nLizard poisons Spock \nSpock smashes Scissors \nScissors decapitates Lizard \nLizard eats Paper \nPaper disproves Spock \nSpock vaporizes Rock");
             Game newGame = new Game();
             newGame.StartGame();
             newGame.PlayGame();
