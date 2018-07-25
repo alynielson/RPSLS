@@ -14,6 +14,11 @@ namespace RPSLS
             score = 0;
             Console.WriteLine(playerNumber + ", what is your name?");
             name = Console.ReadLine();
+            if (name.Length == 0)
+            {
+                Console.WriteLine("You didn't type anything! What is your name?");
+                name = Console.ReadLine();
+            }
             Console.WriteLine("Hello " + name + "!");
         }
         public override void GetPlayerAnswer()
