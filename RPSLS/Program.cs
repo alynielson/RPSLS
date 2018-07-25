@@ -8,13 +8,17 @@ namespace RPSLS
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.WriteLine("Welcome to Rock Paper Scissors Lizard Spock!");
             Game newGame = new Game();
             newGame.StartGame();
             newGame.PlayGame();
-            
+            Console.WriteLine("Press any key to play again!");
+            Console.ReadLine();
+            Console.Clear();
+            Main();
+
         }
     }
 }
