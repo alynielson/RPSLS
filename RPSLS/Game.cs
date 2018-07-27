@@ -66,19 +66,19 @@ namespace RPSLS
             {
                 case ("3"):
                     numberOfRounds = 3;
-                    Console.WriteLine("Three rounds! Let's go! Press any key to continue.");
+                    Console.WriteLine("Three rounds! Let's go! Press Enter to continue.");
                     Console.ReadLine();
                     Console.Clear();
                     break;
                 case ("5"):
                     numberOfRounds = 5;
-                    Console.WriteLine("Five rounds! Let's go! Press any key to continue.");
+                    Console.WriteLine("Five rounds! Let's go! Press Enter to continue.");
                     Console.ReadLine();
                     Console.Clear();
                     break;
                 case ("7"):
                     numberOfRounds = 7;
-                    Console.WriteLine("Seven rounds! Let's go! Press any key to continue.");
+                    Console.WriteLine("Seven rounds! Let's go! Press Enter to continue.");
                     Console.ReadLine();
                     Console.Clear();
                     break;
@@ -118,7 +118,7 @@ namespace RPSLS
                 Console.WriteLine(playerTwo.name + " won " + playerTwo.score + " rounds out of " + (currentRound - 1) + " (" + numberOfRounds + " round game).");
                 Console.WriteLine(playerTwo.name + " wins the game!");
             }
-            Console.ReadLine();
+           // Console.ReadLine();
         }
         
         private void PlayRound()
@@ -128,7 +128,7 @@ namespace RPSLS
             playerOne.ConvertAnswerToChoice();
             if (!isHumanVsComputer)
             {
-                Console.WriteLine("Press any key to clear the console so " + playerTwo.name + " will not see your choice.");
+                Console.WriteLine("Press Enter to clear the console so " + playerTwo.name + " will not see your choice.");
                 Console.ReadLine();
                 Console.Clear();
                 Console.WriteLine("Round " + currentRound + ": " + playerOne.score + " to " + playerTwo.score);
@@ -142,7 +142,7 @@ namespace RPSLS
             if (playerOne.gestureChoice == playerTwo.gestureChoice)
             {
                 Console.WriteLine("Tie! Play the round again.");
-                Console.WriteLine("Press any key to continue.");
+                Console.WriteLine("Press Enter to continue.");
                 Console.ReadLine();
                 Console.Clear();
                 PlayRound();
@@ -197,7 +197,7 @@ namespace RPSLS
                         playerTwo.score++;
                         break;
                 }
-                Console.WriteLine("Press any key to continue.");
+                Console.WriteLine("Press Enter to continue.");
                 Console.ReadLine();
                 Console.Clear();
             }    
